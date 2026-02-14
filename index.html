@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volver al Centro</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="logoju3.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="logoju3.png">
+  <link rel="apple-touch-icon" href="logoju3.png">
+
+</head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Volver al Centro — Regular la ansiedad desde el cuerpo y la conciencia</title>
+  <meta name="description" content="Un espacio para pausar, escuchar el cuerpo y volver al eje interno con más conciencia. Taller online, proceso acompañado y meditaciones guiadas." />
+  <meta name="theme-color" content="#f6b7cf" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Rosa + Plata (LIGHT) */
+    --bg: #fff6fa;                /* fondo rosado muy suave */
+    --panel: rgba(255,255,255,.78);
+    --panel2: rgba(255,255,255,.92);
+    --border: rgba(155, 90, 120, .16);
+
+    --text: rgba(32, 18, 26, .92);
+    --muted: rgba(32, 18, 26, .62);
+
+    --pink-1:#ffe3ee;
+    --pink-2:#f6b7cf;
+    --pink-3:#e78bb2;
+
+    --silver-1:#fbfbfe;
+    --silver-2:#d7d9e2;
+    --silver-3:#a7acbb;
+
+    --shadow: 0 18px 55px rgba(55, 20, 40, .10);
+    --radius: 22px;
+    --radius2: 28px;
+    --max: 1140px;
+
+    --ring: 0 0 0 6px rgba(246,183,207,.24), 0 0 0 1px rgba(90, 40, 65, .12) inset;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(900px 520px at 10% 10%, rgba(246,183,207,.55), transparent 60%),
+      radial-gradient(900px 520px at 90% 18%, rgba(215,217,226,.70), transparent 60%),
+      radial-gradient(700px 420px at 50% 110%, rgba(231,139,178,.40), transparent 70%),
+      linear-gradient(180deg, #fff7fb 0%, #fff1f7 55%, #ffffff 100%);
+    color: var(--text);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    line-height:1.4;
+    overflow-x:hidden;
+  }
+
+
+.heroMedia__imageWrap{
+  flex: 1;
+  min-height: 520px; /* mantiene el tamaño grande del hero */
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(231,139,178,.25);
+}
+
+.heroMedia__image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* llena el espacio sin deformarse */
+  object-position: 50% 35%; /* centra el foco en el ojo */
+  display: block;
+  transform: scale(1.03);   /* leve zoom para impacto */
+  transition: transform .6s ease;
+}
+
+.heroMedia__imageWrap:hover .heroMedia__image{
+  transform: scale(1.06);   /* micro efecto premium al pasar el mouse */
+}
+
+/* Overlay suave rosado/plata para integrar con la marca */
+.heroMedia__overlay{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(500px 400px at 50% 35%, rgba(246,183,207,.25), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.00), rgba(255,255,255,.15));
+  pointer-events: none;
+}
+
+
+
+  a{ color: inherit; text-decoration:none; }
+  .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+  /* Top bar */
+  .topbar{
+    position: sticky;
+    top:0;
+    z-index:50;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 246, 250, .72);
+    border-bottom: 1px solid rgba(155, 90, 120, .14);
+  }
+  .topbar__inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 0;
+    gap: 16px;
+  }
+
+  .brand{ display:flex; align-items:center; gap: 12px; min-width:210px; }
+  .logo{
+    width: 40px; height: 40px;
+    border-radius: 14px;
+    background:
+      radial-gradient(16px 16px at 30% 30%, rgba(255,255,255,.85), transparent 55%),
+      linear-gradient(135deg, rgba(246,183,207,1), rgba(215,217,226,1));
+    box-shadow: 0 12px 34px rgba(231,139,178,.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .logo:after{
+    content:"";
+    position:absolute; inset:-40%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 50%);
+    transform: rotate(25deg);
+  }
+
+  .brand h1{
+    font-family: Fraunces, serif;
+    font-weight: 520;
+    font-size: 18px;
+    margin:0;
+    letter-spacing:.2px;
+  }
+  .brand p{
+    margin:0;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .nav{ display:flex; align-items:center; gap: 14px; flex-wrap: wrap; justify-content:flex-end; }
+  .nav a{
+    font-size: 13px;
+    color: rgba(32,18,26,.74);
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: .2s ease;
+  }
+  .nav a:hover{
+    border-color: rgba(155,90,120,.18);
+    background: rgba(255,255,255,.55);
+    color: rgba(32,18,26,.92);
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    gap:10px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(155, 90, 120, .18);
+    background: rgba(255,255,255,.62);
+    color: rgba(32,18,26,.92);
+    font-weight: 650;
+    font-size: 13px;
+    letter-spacing: .2px;
+    box-shadow: 0 12px 30px rgba(55,20,40,.10);
+    transition: .2s ease;
+    cursor:pointer;
+    user-select:none;
+  }
+  .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.78); }
+  .btn:focus{ outline:none; box-shadow: var(--ring); }
+
+  .btn--primary{
+    border-color: rgba(231,139,178,.35);
+    background: linear-gradient(135deg, rgba(246,183,207,1), rgba(215,217,226,1));
+    color: rgba(32,18,26,.92);
+    box-shadow: 0 18px 45px rgba(231,139,178,.22);
+  }
+  .btn--primary:hover{ filter: brightness(1.02); }
+
+  .btn--ghost{
+    background: rgba(255,255,255,.38);
+    border-color: rgba(155, 90, 120, .14);
+  }
+
+  /* Hero */
+  .hero{ padding: 46px 0 26px; }
+  .hero__grid{
+    display:grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .kicker{
+    display:inline-flex; align-items:center; gap:10px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(155,90,120,.16);
+    background: rgba(255,255,255,.55);
+    color: rgba(32,18,26,.72);
+    font-size: 12px;
+  }
+  .dot{
+    width: 10px; height:10px; border-radius:50%;
+    background: linear-gradient(135deg, var(--pink-2), var(--silver-2));
+    box-shadow: 0 0 0 7px rgba(246,183,207,.25);
+  }
+
+  .hero h2{
+    font-family: Fraunces, serif;
+    font-size: clamp(34px, 4.5vw, 54px);
+    line-height: 1.02;
+    margin: 14px 0 14px;
+    letter-spacing: .2px;
+  }
+  .hero h2 span{
+    background: linear-gradient(90deg, rgba(231,139,178,1), rgba(167,172,187,1));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color: transparent;
+  }
+  .hero p{
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 54ch;
+  }
+  .hero__actions{
+    display:flex; gap: 12px; flex-wrap: wrap;
+    align-items:center; margin: 18px 0 18px;
+  }
+
+  /* Cards / Panels */
+  .status, .card, details, .li{
+    border-radius: var(--radius2);
+    border: 1px solid rgba(155,90,120,.16);
+    background: rgba(255,255,255,.62);
+    box-shadow: var(--shadow);
+  }
+  .status{ overflow:hidden; }
+  .status__top{
+    padding: 18px 18px 12px;
+    border-bottom: 1px solid rgba(155,90,120,.12);
+    display:flex; justify-content: space-between; gap:10px; align-items:center;
+  }
+  .badge{
+    display:inline-flex; gap:8px; align-items:center;
+    padding: 8px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(231,139,178,.28);
+    background: rgba(246,183,207,.22);
+    font-size: 12px;
+    color: rgba(32,18,26,.82);
+    white-space: nowrap;
+  }
+  .badge b{ color: rgba(32,18,26,.92); }
+  .timer{ font-variant-numeric: tabular-nums; font-size: 12px; color: rgba(32,18,26,.70); text-align:right; }
+  .status__body{ padding: 16px 18px 18px; display:grid; gap: 12px; }
+
+  .mini-grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; }
+  .mini{
+    border-radius: 18px;
+    border: 1px solid rgba(155,90,120,.12);
+    background: rgba(255,255,255,.72);
+    padding: 12px;
+  }
+  .mini .label{ font-size: 11px; color: rgba(32,18,26,.62); margin-bottom: 6px; }
+  .mini .value{ font-size: 13px; font-weight: 750; color: rgba(32,18,26,.92); }
+
+  .progress{
+    height: 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(155,90,120,.14);
+    background: rgba(255,255,255,.60);
+    overflow:hidden;
+  }
+  .bar{
+    height:100%;
+    width: 38%;
+    background: linear-gradient(90deg, rgba(231,139,178,1), rgba(215,217,226,1));
+    border-radius: 999px;
+    box-shadow: 0 12px 22px rgba(231,139,178,.22);
+  }
+
+  /* HERO IMAGE PLACEHOLDER (GRANDE) */
+  .heroMedia{
+    border-radius: var(--radius2);
+    border: 1px solid rgba(155,90,120,.16);
+    background:
+      radial-gradient(240px 220px at 30% 25%, rgba(246,183,207,.55), transparent 60%),
+      radial-gradient(240px 220px at 75% 30%, rgba(215,217,226,.75), transparent 60%),
+      linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.55));
+    box-shadow: var(--shadow);
+    overflow:hidden;
+    min-height: 520px;
+    position: relative;
+    display:flex;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+  .heroMedia__inner{ width:100%; padding: 18px; display:flex; flex-direction: column; gap: 14px; }
+
+  .heroMedia__placeholder{
+    flex:1;
+    border-radius: 22px;
+    border: 1px dashed rgba(155,90,120,.22);
+    background: linear-gradient(135deg, rgba(246,183,207,.20), rgba(215,217,226,.18));
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    padding: 22px;
+    color: rgba(32,18,26,.72);
+    position:relative;
+  }
+  .heroMedia__placeholder h3{
+    font-family: Fraunces, serif;
+    margin: 0 0 8px;
+    font-size: 22px;
+    color: rgba(32,18,26,.92);
+  }
+  .heroMedia__placeholder p{ margin:0; font-size: 13px; color: rgba(32,18,26,.64); }
+
+  .heroMedia__quick{ display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center; }
+  .chips{ display:flex; gap:8px; flex-wrap:wrap; }
+  .chip{
+    font-size: 11px;
+    padding: 8px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(155,90,120,.16);
+    background: rgba(255,255,255,.66);
+    color: rgba(32,18,26,.72);
+  }
+
+  section{ padding: 30px 0; }
+  .sectionTitle{ display:flex; align-items:baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+  .sectionTitle h3{
+    margin:0; font-family: Fraunces, serif; font-weight: 520;
+    font-size: 28px; letter-spacing:.2px;
+  }
+  .sectionTitle p{ margin:0; color: var(--muted); font-size: 13px; max-width: 52ch; }
+
+  .grid3{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+  .card{ padding: 16px; overflow:hidden; position: relative; border-radius: var(--radius); }
+  .card:before{
+    content:"";
+    position:absolute; inset:-50%;
+    background: radial-gradient(circle at 20% 20%, rgba(246,183,207,.24), transparent 55%);
+    pointer-events:none;
+    transform: rotate(10deg);
+  }
+  .card h4{ margin:0 0 8px; font-size: 15px; position:relative; }
+  .card p{ margin:0; color: var(--muted); font-size: 13px; position:relative; }
+
+  .split{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items:start; }
+
+  .list{ margin: 10px 0 0; padding:0; list-style:none; display:grid; gap: 10px; }
+  .li{
+    display:flex; gap: 10px; align-items:flex-start;
+    border-radius: 18px;
+    padding: 12px;
+    background: rgba(255,255,255,.70);
+  }
+  .tick{
+    width: 22px; height:22px; border-radius: 10px;
+    background: linear-gradient(135deg, rgba(231,139,178,1), rgba(215,217,226,1));
+    flex: 0 0 auto;
+    box-shadow: 0 12px 22px rgba(231,139,178,.18);
+  }
+  .li b{ display:block; font-size: 13px; margin-bottom: 2px; }
+  .li span{ color: var(--muted); font-size: 12px; }
+
+  .form{ display:flex; gap:10px; flex-wrap: wrap; margin-top: 12px; }
+  input{
+    flex: 1 1 240px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(155,90,120,.18);
+    background: rgba(255,255,255,.78);
+    color: rgba(32,18,26,.92);
+    outline:none;
+  }
+  input:focus{ box-shadow: var(--ring); }
+  .small{ font-size: 12px; color: rgba(32,18,26,.62); margin-top: 8px; }
+
+  details{
+    border-radius: 18px;
+    padding: 12px 14px;
+    background: rgba(255,255,255,.68);
+  }
+  details summary{
+    cursor:pointer;
+    list-style:none;
+    font-weight: 750;
+    font-size: 13px;
+    display:flex; align-items:center; justify-content: space-between; gap: 10px;
+  }
+  details summary::-webkit-details-marker{ display:none; }
+  details p{ margin: 10px 0 0; color: var(--muted); font-size: 12px; }
+
+  footer{
+    padding: 30px 0 46px;
+    border-top: 1px solid rgba(155,90,120,.12);
+    color: rgba(32,18,26,.62);
+    font-size: 12px;
+  }
+  .foot{ display:flex; align-items:center; justify-content: space-between; gap: 14px; flex-wrap:wrap; }
+  .foot a{ color: rgba(32,18,26,.74); border-bottom: 1px dashed rgba(155,90,120,.22); }
+
+  @media (max-width: 980px){
+    .hero__grid{ grid-template-columns: 1fr; }
+    .heroMedia{ min-height: 460px; }
+    .grid3{ grid-template-columns: 1fr; }
+    .split{ grid-template-columns: 1fr; }
+    .nav{ display:none; }
+  }
+</style>
+
+
+</head>
+
+<body>
+  <!-- TOPBAR -->
+
+    <div class="container">
+      <div class="topbar__inner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>Volver al Centro</h1>
+            <p>Regular la ansiedad desde el cuerpo y la conciencia</p>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Navegación">
+          <a href="#programa">Programa</a>
+          <a href="#plc">Prelanzamiento</a>
+          <a href="#testimonios">Experiencias</a>
+          <a href="#faq">Preguntas</a>
+        </nav>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a class="btn btn--ghost" href="#waitlist">Sumarme a la lista</a>
+          <a class="btn btn--primary" href="#oferta">Ver detalles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div>
+          <div class="kicker"><span class="dot"></span> Un espacio para pausar, escuchar el cuerpo y volver al eje interno</div>
+
+          <h2>
+            Bajá el ruido interno.<br>
+            <span>Volvé a vos.</span>
+          </h2>
+
+          <p>
+            Si sentís ansiedad, cansancio emocional o que tu mente no frena, este proceso está diseñado para
+            acompañarte desde la presencia, la regulación y el registro corporal — sin exigencia ni perfección.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#waitlist">Quiero reservar mi lugar</a>
+            <a class="btn" href="#plc">Ver cómo es el prelanzamiento</a>
+          </div>
+
+          <div class="status" style="margin-top:16px;">
+            <div class="status__top">
+              <div class="badge">Estado: <b id="launchState">Prelanzamiento</b></div>
+              <div class="timer">
+                <div>Próximo hito: <b id="nextMilestone">PLC1</b></div>
+                <div>Cuenta regresiva: <b id="countdown">--d --h --m</b></div>
+              </div>
+            </div>
+            <div class="status__body">
+              <div class="mini-grid">
+                <div class="mini">
+                  <div class="label">Modalidad</div>
+                  <div class="value">Online / En vivo</div>
+                </div>
+                <div class="mini">
+                  <div class="label">Duración</div>
+                  <div class="value">3 semanas</div>
+                </div>
+                <div class="mini">
+                  <div class="label">Materiales</div>
+                  <div class="value">E-book + audios</div>
+                </div>
+              </div>
+              <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
+              <div class="status__note">
+                <b>Tip:</b> durante el prelanzamiento vas a recibir contenido que “te acompaña” (no te exige):
+                microprácticas + guía para regular desde el cuerpo.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO IMAGE PLACEHOLDER -->
+       <div class="heroMedia__imageWrap">
+       <img
+       src="ju.png"
+       alt="Volver al Centro - foco en el ojo"
+       class="heroMedia__image"
+       />
+       <div class="heroMedia__overlay"></div>
+       </div>
+
+
+            <div class="heroMedia__quick">
+              <div class="chips">
+                <span class="chip">Ansiedad & regulación</span>
+                <span class="chip">Meditaciones guiadas</span>
+                <span class="chip">Escritura terapéutica</span>
+              </div>
+              <a class="btn btn--ghost" href="#programa">Qué incluye</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROGRAMA -->
+  <section id="programa">
+    <div class="container">
+      <div class="sectionTitle">
+        <h3>¿Qué es “Volver al Centro”?</h3>
+        <p>Un proceso cuidado, simple y profundo para bajar la ansiedad y volver a tu eje interno.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h4>Registro corporal</h4>
+          <p>Aprendés a detectar señales tempranas y a volver al cuerpo como ancla (sin pelearte con tu mente).</p>
+        </div>
+        <div class="card">
+          <h4>Regulación del sistema nervioso</h4>
+          <p>Prácticas guiadas para bajar activación, ampliar presencia y sostenerte en lo cotidiano.</p>
+        </div>
+        <div class="card">
+          <h4>Acompañamiento consciente</h4>
+          <p>Proceso con materiales, meditaciones y recursos para continuar a tu ritmo, con suavidad.</p>
+        </div>
+      </div>
+
+      <div class="split" style="margin-top:14px;">
+        <div class="card">
+          <h4>Incluye</h4>
+          <ul class="list">
+            <li class="li"><span class="tick" aria-hidden="true"></span><div><b>E-book “Volver al Centro”</b><span>Guía práctica + orden del proceso.</span></div></li>
+            <li class="li"><span class="tick" aria-hidden="true"></span><div><b>21 días de meditaciones guiadas</b><span>Audios diseñados para calmar y regular.</span></div></li>
+            <li class="li"><span class="tick" aria-hidden="true"></span><div><b>Ejercicios de escritura terapéutica</b><span>Integración emocional sin sobrecarga.</span></div></li>
+            <li class="li"><span class="tick" aria-hidden="true"></span><div><b>Acompañamiento durante 3 semanas</b><span>Consistencia con cuidado (sin perfeccionismo).</span></div></li>
+          </ul>
+        </div>
+
+        <div class="card" id="oferta">
+          <h4>Para quién es</h4>
+          <ul class="list">
+            <li class="li"><span class="tick" aria-hidden="true"></span><div><b>Si sentís ansiedad o sobrecarga</b><span>Cuando la mente no frena y el cuerpo “pasa factura”.</span></div></li>
+            <li class="li"><span class="tick" aria-hidden="true"></span><div><b>Si te cuesta poner límites</b><span>Volver al eje interno para decidir con claridad.</span></div></li>
+            <li class="li"><span class="tick" aria-hidden="true"></span><div><b>Si querés un método amable</b><span>Con estructura, pero sin exigencia ni culpa.</span></div></li>
+          </ul>
+
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn--primary" href="#waitlist">Entrar a la lista prioritaria</a>
+            <a class="btn" href="#faq">Ver preguntas frecuentes</a>
+          </div>
+
+          <div class="small">
+            * Podés editar este bloque para sumar: fecha exacta, horario, precio, cupos y link de pago.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JEFF WALKER / LAUNCH -->
+  
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
+    <div class="container">
+      <div class="sectionTitle">
+        <h3>Experiencias</h3>
+        <p>Acá colocamos testimonios reales (texto corto). Si querés, te preparo el formato para que queden “premium”.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h4>“Pude frenar.”</h4>
+          <p>Sentí que tenía herramientas concretas para calmarme sin exigirme estar bien todo el tiempo.</p>
+          <div class="small">— Nombre / Iniciales</div>
+        </div>
+        <div class="card">
+          <h4>“Volví a mi cuerpo.”</h4>
+          <p>Dejé de pelearme con mi mente. Aprendí a escuchar señales y sostenerme con calma.</p>
+          <div class="small">— Nombre / Iniciales</div>
+        </div>
+        <div class="card">
+          <h4>“Orden y suavidad.”</h4>
+          <p>La estructura me dio claridad. Lo sentí amoroso, sin presión, y eso me permitió hacerlo.</p>
+          <div class="small">— Nombre / Iniciales</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section id="waitlist">
+    <div class="container">
+      <div class="sectionTitle">
+        <h3>Lista prioritaria</h3>
+        <p>Entrás primero, recibís los PLC y te avisamos cuando abran los cupos.</p>
+      </div>
+
+      <div class="card">
+        <h4>Recibí el contenido del prelanzamiento</h4>
+        <p style="margin-top:6px;">Dejá tu email y te mandamos el primer contenido + recordatorios suaves (sin spam).</p>
+
+        <form class="form" id="leadForm">
+          <input required type="text" name="name" placeholder="Tu nombre" aria-label="Tu nombre">
+          <input required type="email" name="email" placeholder="Tu email" aria-label="Tu email">
+          <button class="btn btn--primary" type="submit">Sumarme</button>
+        </form>
+
+        <div class="small" id="formMsg">
+          * Esto está preparado para conectar luego con MailerLite / ConvertKit / Brevo. Por ahora simula el registro.
+        </div>
+
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="#" onclick="openLink('https://instagram.com/'); return false;">Instagram</a>
+          <a class="btn" href="#" onclick="openLink('https://wa.me/'); return false;">WhatsApp</a>
+          <a class="btn btn--ghost" href="#" onclick="openLink('https://linktr.ee/'); return false;">Link en bio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="sectionTitle">
+        <h3>Preguntas frecuentes</h3>
+        <p>Respuestas cortas, claras y sin vueltas (para reducir ansiedad, no aumentarla).</p>
+      </div>
+
+      <div class="split">
+        <details open>
+          <summary>¿Necesito experiencia previa con meditación? <span>+</span></summary>
+          <p>No. Está pensado para empezar simple. Las prácticas están guiadas y orientadas a regulación (no a “hacerlo perfecto”).</p>
+        </details>
+        <details>
+          <summary>¿Y si no tengo constancia? <span>+</span></summary>
+          <p>El enfoque es amable: micro-prácticas y estructura ligera. La idea es ayudarte a sostener sin exigencia.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto tiempo por día? <span>+</span></summary>
+          <p>Podés hacerlo en 10–15 minutos. Si un día no podés, volvés cuando puedas. La continuidad es flexible.</p>
+        </details>
+        <details>
+          <summary>¿Es terapia? <span>+</span></summary>
+          <p>Es un proceso de acompañamiento y prácticas. No reemplaza un tratamiento profesional si lo necesitás, pero puede complementarlo.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>
+          <b style="color:rgba(255,255,255,.78)">Volver al Centro</b><br>
+          <span>Psicología • Registro corporal • Regulación emocional</span>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end;">
+          <a href="#waitlist">Lista prioritaria</a>
+          <a href="#plc">Prelanzamiento</a>
+          <a href="#programa">Programa</a>
+        </div>
+      </div>
+      <div style="margin-top:10px;">
+        © <span id="year"></span> — Hecho para un lanzamiento con estructura (Jeff Walker) y tono cuidado.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ====== CONFIG RÁPIDA (EDITÁ ESTO) ======
+    // Definí fechas de hitos del launch (formato: YYYY-MM-DDTHH:MM:SS)
+    // Ejemplo: "2026-03-01T09:00:00"
+    const LAUNCH = {
+      plc1: "2026-03-01T09:00:00",
+      plc2: "2026-03-03T09:00:00",
+      plc3: "2026-03-05T09:00:00",
+      openCart: "2026-03-06T09:00:00",
+      closeCart: "2026-03-09T21:00:00",
+      timezoneNote: "Hora local" // solo visual
+    };
+
+    // ====== UTIL ======
+    const $ = (id) => document.getElementById(id);
+
+    function openLink(url){
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    function parseDate(s){
+      const d = new Date(s);
+      return isNaN(d.getTime()) ? null : d;
+    }
+
+    function formatCountdown(ms){
+      if(ms <= 0) return "0d 0h 0m";
+      const totalMin = Math.floor(ms / 60000);
+      const d = Math.floor(totalMin / (60*24));
+      const h = Math.floor((totalMin - d*60*24) / 60);
+      const m = totalMin - d*60*24 - h*60;
+      return `${d}d ${h}h ${m}m`;
+    }
+
+    function stage(now){
+      const t = {
+        plc1: parseDate(LAUNCH.plc1),
+        plc2: parseDate(LAUNCH.plc2),
+        plc3: parseDate(LAUNCH.plc3),
+        openCart: parseDate(LAUNCH.openCart),
+        closeCart: parseDate(LAUNCH.closeCart)
+      };
+
+      // Si no setean fechas reales, dejamos “Prelanzamiento” sin countdown
+      if(!t.plc1 || !t.plc2 || !t.plc3 || !t.openCart || !t.closeCart){
+        return { state: "Prelanzamiento", next: "PLC1", ms: 0, progress: 38 };
+      }
+
+      if(now < t.plc1) return { state: "Prelanzamiento", next:"PLC1", ms: t.plc1 - now, progress: 22 };
+      if(now < t.plc2) return { state: "Prelanzamiento", next:"PLC2", ms: t.plc2 - now, progress: 35 };
+      if(now < t.plc3) return { state: "Prelanzamiento", next:"PLC3", ms: t.plc3 - now, progress: 48 };
+      if(now < t.openCart) return { state: "Prelanzamiento", next:"Apertura", ms: t.openCart - now, progress: 62 };
+      if(now < t.closeCart) return { state: "Carrito Abierto", next:"Cierre", ms: t.closeCart - now, progress: 82 };
+      return { state: "Inscripciones cerradas", next:"Próximo ciclo", ms: 0, progress: 100 };
+    }
+
+    function tick(){
+      const now = new Date();
+      const s = stage(now);
+      $("launchState").textContent = s.state;
+      $("nextMilestone").textContent = s.next;
+      $("countdown").textContent = formatCountdown(s.ms);
+
+      const bar = $("progressBar");
+      bar.style.width = Math.max(6, Math.min(100, s.progress)) + "%";
+    }
+
+    // Fake form submit (para conectar luego a tu plataforma de email)
+    $("leadForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const name = String(fd.get("name") || "").trim();
+      const email = String(fd.get("email") || "").trim();
+      $("formMsg").textContent = `¡Listo, ${name || "hermosa"}! Te registramos con ${email}. (Simulación)`;
+      e.target.reset();
+    });
+
+    $("year").textContent = new Date().getFullYear();
+    tick();
+    setInterval(tick, 30000);
+  </script>
+</body>
+</html>
